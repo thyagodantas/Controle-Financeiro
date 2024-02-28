@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="listValuesContainer">
+    <table class="table-striped">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Valor</th>
+          <th style="text-align: right">Tipo</th>
+          <th class="cell-especial"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of lista">
+          <td>{{ item.description }}</td>
+          <td>R${{ item.value }}</td>
+          <td class="type-cell">
+            <fa-icon
+              *ngIf="item.type == '1'"
+              [icon]="iconCircleUp"
+              class="icon-up"
+            ></fa-icon>
+            <fa-icon
+              *ngIf="item.type == '2'"
+              [icon]="iconCircleDown"
+              class="icon-down"
+            ></fa-icon>
+          </td>
+          <td class="delete-cell" colspan="2">
+            <button
+              class="delete-button"
+              (click)="deletarItem(item.idtransactions)"
+            >
+              <fa-icon [icon]="iconTrash"></fa-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
